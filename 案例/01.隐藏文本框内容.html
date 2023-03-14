@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 第一种使用placeholder  -->
+    <input type="text" placeholder="请输入" />
+    <!-- 第二种使用事件  -->
+    <input type="text" name="" id="demo2" value="请输入" />
+    <script>
+      let demo2 = document.querySelector("#demo2");
+      demo2.onfocus = function () {
+        // console.log("焦点触发");
+        demo2.value == "请输入" ? (demo2.value = "") : demo2.value;
+      };
+      demo2.onblur = function () {
+        console.log("失去焦点", demo2.value == "");
+        demo2.value == "" ? (demo2.value = "请输入") : demo2.value;
+      };
+    </script>
+  </body>
+</html>

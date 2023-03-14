@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        width: 800px;
+        margin: 200px auto;
+        text-align: center;
+
+        /* cellspacing: 0;
+         */
+        /* border: 1px solid #ccc; */
+        border-collapse: collapse;
+      }
+      table tr:first-child {
+        background-color: aqua;
+      }
+      table tr:nth-child(n + 2) {
+        border-bottom: 1px solid #9e2a2a;
+      }
+      table tr td,
+      th {
+        padding: 4px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <table cellspacing="0">
+      <tr>
+        <th>代码</th>
+        <th>名称</th>
+        <th>最新公布净值</th>
+        <th>累计净值</th>
+        <th>前单位净值</th>
+        <th>精致增长率</th>
+      </tr>
+      <tr>
+        <td>003526</td>
+        <td>浓阴津汇</td>
+        <td>1.075</td>
+        <td>1.079</td>
+        <td>10.74</td>
+        <td>+0.047%</td>
+      </tr>
+      <tr>
+        <td>003526</td>
+        <td>浓阴津汇</td>
+        <td>1.075</td>
+        <td>1.079</td>
+        <td>10.74</td>
+        <td>+0.047%</td>
+      </tr>
+      <tr>
+        <td>003526</td>
+        <td>浓阴津汇</td>
+        <td>1.075</td>
+        <td>1.079</td>
+        <td>10.74</td>
+        <td>+0.047%</td>
+      </tr>
+      <tr>
+        <td>003526</td>
+        <td>浓阴津汇</td>
+        <td>1.075</td>
+        <td>1.079</td>
+        <td>10.74</td>
+        <td>+0.047%</td>
+      </tr>
+      <tr>
+        <td>003526</td>
+        <td>浓阴津汇</td>
+        <td>1.075</td>
+        <td>1.079</td>
+        <td>10.74</td>
+        <td>+0.047%</td>
+      </tr>
+      <tr>
+        <td>003526</td>
+        <td>浓阴津汇</td>
+        <td>1.075</td>
+        <td>1.079</td>
+        <td>10.74</td>
+        <td>+0.047%</td>
+      </tr>
+    </table>
+    <script>
+      let trs = document.getElementsByTagName("tr");
+      for (let i = 0; i < trs.length; i++) {
+        trs[i].onmouseover = function () {
+          trs[i].style.opacity = "0.4";
+        };
+        trs[i].onmouseleave = function () {
+          trs[i].style.opacity = "1";
+        };
+      }
+    </script>
+  </body>
+</html>

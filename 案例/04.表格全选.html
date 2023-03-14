@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        width: 800px;
+        margin: 200px auto;
+        text-align: center;
+
+        /* cellspacing: 0;
+         */
+        /* border: 1px solid #ccc; */
+        border-collapse: collapse;
+      }
+      table thead tr:first-child {
+        background-color: aqua;
+      }
+      table tbody tr:nth-child(n + 1) {
+        border-bottom: 1px solid #9e2a2a;
+      }
+      table tr td,
+      th {
+        padding: 4px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <table cellspacing="0">
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" name="" id="" />
+          </th>
+          <th>代码</th>
+          <th>名称</th>
+          <th>最新公布净值</th>
+          <th>累计净值</th>
+          <th>前单位净值</th>
+          <th>精致增长率</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>
+            <input type="checkbox" name="" id="" />
+          </th>
+          <td>003526</td>
+          <td>浓阴津汇</td>
+          <td>1.075</td>
+          <td>1.079</td>
+          <td>10.74</td>
+          <td>+0.047%</td>
+        </tr>
+        <tr>
+          <th>
+            <input type="checkbox" name="" id="" />
+          </th>
+          <td>003526</td>
+          <td>浓阴津汇</td>
+          <td>1.075</td>
+          <td>1.079</td>
+          <td>10.74</td>
+          <td>+0.047%</td>
+        </tr>
+        <tr>
+          <th>
+            <input type="checkbox" name="" id="" />
+          </th>
+          <td>003526</td>
+          <td>浓阴津汇</td>
+          <td>1.075</td>
+          <td>1.079</td>
+          <td>10.74</td>
+          <td>+0.047%</td>
+        </tr>
+        <tr>
+          <th>
+            <input type="checkbox" name="" id="" />
+          </th>
+          <td>003526</td>
+          <td>浓阴津汇</td>
+          <td>1.075</td>
+          <td>1.079</td>
+          <td>10.74</td>
+          <td>+0.047%</td>
+        </tr>
+        <tr>
+          <th>
+            <input type="checkbox" name="" id="" />
+          </th>
+          <td>003526</td>
+          <td>浓阴津汇</td>
+          <td>1.075</td>
+          <td>1.079</td>
+          <td>10.74</td>
+          <td>+0.047%</td>
+        </tr>
+        <tr>
+          <th>
+            <input type="checkbox" name="" id="" />
+          </th>
+          <td>003526</td>
+          <td>浓阴津汇</td>
+          <td>1.075</td>
+          <td>1.079</td>
+          <td>10.74</td>
+          <td>+0.047%</td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      let trs = document.querySelectorAll("tr");
+      let checked = document.querySelector("thead").querySelector("input");
+      let tbCheckeds = document
+        .querySelector("tbody")
+        .querySelectorAll("input");
+      for (let i = 1; i < trs.length; i++) {
+        let flag = false;
+        trs[i].onmouseover = function () {
+          trs[i].style.opacity = "0.4";
+        };
+        trs[i].onmouseleave = function () {
+          trs[i].style.opacity = "1";
+        };
+        trs[i].onclick = function () {
+          console.log("tr", trs[i].querySelector("input"));
+          flag = !flag;
+          console.log(flag);
+          trs[i].querySelector("input").checked = flag;
+        };
+      }
+      let flag = false;
+      trs[0].onclick = function () {
+        // console.log("tr", trs[0].querySelector("input"));
+        flag = !flag;
+        console.log(flag);
+        trs[0].querySelector("input").checked = flag;
+        for (let i = 0; i < tbCheckeds.length; i++) {
+          if (trs[0].querySelector("input").checked == true) {
+            tbCheckeds[i].checked = true;
+          } else {
+            tbCheckeds[i].checked = false;
+          }
+        }
+      };
+
+      checked.onclick = function () {
+        // console.log(this.checked, "checked");
+        for (let i = 0; i < tbCheckeds.length; i++) {
+          if (this.checked == true) {
+            tbCheckeds[i].checked = true;
+          } else {
+            tbCheckeds[i].checked = false;
+          }
+        }
+      };
+      for (let i = 0; i < tbCheckeds.length; i++) {
+        tbCheckeds[i].onclick = function () {
+          console.log(tbCheckeds[i].checked);
+          for (let j = 0; j < tbCheckeds.length; j++) {
+            if (tbCheckeds[j].checked == false) {
+              checked.checked = false;
+              break;
+            } else {
+              checked.checked = true;
+            }
+          }
+        };
+      }
+    </script>
+  </body>
+</html>

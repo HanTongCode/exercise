@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul li {
+        list-style: none;
+        width: 60px;
+        height: 30px;
+        line-height: 30px;
+        /* padding: 0 10px; */
+      }
+      .nav {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        margin: 80px auto;
+        /* background-color: aqua; */
+        text-align: center;
+      }
+      .nav > li {
+        float: left;
+      }
+      .nav > li a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: #060505;
+      }
+      .nav > ul {
+        display: none;
+        position: absolute;
+        top: 30px;
+      }
+      .nav > ul li {
+        border: 1px solid orange;
+        border-top: none;
+      }
+      .nav > ul:nth-of-type(1) {
+        left: 0;
+      }
+      .nav > ul:nth-of-type(2) {
+        left: 60px;
+      }
+      .nav > ul:nth-of-type(3) {
+        left: 120px;
+      }
+      .nav > ul:nth-of-type(4) {
+        left: 180px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="nav">
+      <li><a href="#">微博</a></li>
+      <ul>
+        <li>私信</li>
+        <li>评论</li>
+        <li>@我</li>
+      </ul>
+      <li><a href="#">微博</a></li>
+      <ul>
+        <li>私信</li>
+        <li>评论</li>
+        <li>@我</li>
+      </ul>
+      <li><a href="#">微博</a></li>
+      <ul>
+        <li>私信</li>
+        <li>评论</li>
+        <li>@我</li>
+      </ul>
+      <li><a href="#">微博</a></li>
+      <ul>
+        <li>私信</li>
+        <li>评论</li>
+        <li>@我</li>
+      </ul>
+    </ul>
+    <script>
+      let a = document.querySelectorAll("a");
+      let ul = document.querySelector(".nav").querySelectorAll("ul");
+      for (let i = 0; i < a.length; i++) {
+        a[i].onmouseover = function () {
+          for (let i = 0; i < ul.length; i++) {
+            ul[i].style.display = "none";
+          }
+          // console.log(a[i].parentNode.parentNode.children);
+          a[i].parentNode.parentNode.children[2 * i + 1].style.display =
+            "block";
+        };
+        a[i].onmouseleave = function () {
+          a[i].parentNode.parentNode.children[2 * i + 1].style.display = "none";
+        };
+      }
+    </script>
+  </body>
+</html>
