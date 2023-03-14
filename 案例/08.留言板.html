@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 800px;
+        margin: 150px auto;
+      }
+      ul li {
+        position: relative;
+        width: 200px;
+        background-color: aqua;
+        list-style: none;
+        height: 20px;
+        /* text-align: center; */
+        line-height: 20px;
+        margin: 5px 0;
+      }
+      .debtn {
+        width: 40px;
+        height: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+        style="resize: none"
+      ></textarea>
+      <input type="button" value="发布" />
+      <ul></ul>
+    </div>
+
+    <script>
+      let btn = document.querySelector("input");
+      let ul = document.querySelector("ul");
+
+      btn.onclick = function () {
+        let text = document.querySelector("textarea").value;
+
+        if (text) {
+          // console.log(text);
+          let li = document.createElement("li");
+          let debtn = document.createElement("button");
+          debtn.innerText = "刪除";
+          debtn.className = "debtn";
+          li.innerText = text;
+          li.appendChild(debtn);
+          // ul.appendChild(li);
+          ul.insertBefore(li, ul.children[0]);
+          document.querySelector("textarea").value = "";
+          debtn.onclick = function () {
+            ul.removeChild(li);
+          };
+        } else {
+          alert("請輸入内容");
+        }
+      };
+    </script>
+  </body>
+</html>
