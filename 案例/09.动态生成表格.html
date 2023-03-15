@@ -42,6 +42,14 @@
       </thead>
     </table>
     <script>
+      let xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          console.log(xmlhttp.responseText);
+        }
+      };
+      xmlhttp.open("get", "http://localhost:3000/api/getUserMsg", true);
+      xmlhttp.send();
       let data = [
         {
           name: "张三",
@@ -71,7 +79,7 @@
       for (let i = 0; i < data.length; i++) {
         let tr = document.createElement("tr");
         tbody.appendChild(tr);
-        console.log(data[i]);
+        // console.log(data[i]);
         for (let j of Object.keys(data[i])) {
           let td = document.createElement("td");
           // console.log(data[i][j]);
